@@ -13,12 +13,31 @@ const store = createStore(
 
 sagaMiddleware.run(requestFactory);
 
-export const getSampleProduct = () => {
-  console.log("sample product");
+const getSampleProducts = () => {
   store.dispatch({
     type: ACTIONS.HTTP_REQUEST,
     payload: { path: "sample_products.json", type: "GET_SAMPLE_PRODUCTS" },
   });
+};
+
+const setFilters = (payload) => {
+  store.dispatch({
+    type: "setFilters",
+    payload,
+  });
+};
+
+const setSortKey = (payload) => {
+  store.dispatch({
+    type: "setSortKey",
+    payload,
+  });
+};
+
+export const sampleProduct = {
+  getSampleProducts,
+  setFilters,
+  setSortKey,
 };
 
 export default store;

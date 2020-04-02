@@ -59,6 +59,7 @@ const ProductCard = ({ product }) => {
     >
       <img src={product.image} alt={product.name} height={200} />
       {product.name}
+      <span>{product.price}</span>
     </div>
   );
 };
