@@ -4,5 +4,6 @@ export default {
     descendingPrice: "Azalan Fiyat",
     inStock: "stokta olanlar",
     searchProduct: "Ürün ara",
+    notFound: "Sayfa Bulunamadı",
   },
 };

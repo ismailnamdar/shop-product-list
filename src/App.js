@@ -1,13 +1,17 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import { Provider } from "react-redux";
 import ProductList from "./pages/ProductList";
 import store from "./redux/store";
+import NoMatch from "./pages/NoMatch";
 
 const AppRouter = () => {
   return (
     <Router>
-      <Route key="productList" exact path="/" component={ProductList} />
+      <Switch>
+        <Route key="productList" exact path="/" component={ProductList} />
+        <Route component={NoMatch} />
+      </Switch>
     </Router>
   );
 };

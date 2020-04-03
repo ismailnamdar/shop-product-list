@@ -4,5 +4,6 @@ export default {
     descendingPrice: "Descending Price",
     inStock: "in stock",
     searchProduct: "Search product",
+    notFound: "Page Not Found",
   },
 };
