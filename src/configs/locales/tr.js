@@ -3,5 +3,6 @@ export default {
     ascendingPrice: "Artan Fiyat",
     descendingPrice: "Azalan Fiyat",
     inStock: "stokta olanlar",
+    searchProduct: "Ürün ara",
   },
 };
