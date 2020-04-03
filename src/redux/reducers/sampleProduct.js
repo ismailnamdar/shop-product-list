@@ -7,7 +7,7 @@ const initialState = {
   filters: {
     inStock: false,
   },
-  sortKey: SORT_KEYS.PRICE_ASC,
+  sortKey: SORT_KEYS.PRICE_DESC,
   count: 0,
 };
 
