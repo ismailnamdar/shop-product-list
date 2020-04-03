@@ -23,7 +23,7 @@ NavBar.propTypes = {
 NavBar.defaultProps = {
   children: <></>,
   spaceBetween: false,
-  padding: '0px',
+  padding: "0px",
 };
 
 export default NavBar;
