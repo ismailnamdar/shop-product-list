@@ -58,7 +58,7 @@ const ProductList = () => {
   }, []);
   return (
     <div>
-      <NavBar spaceBetween={true}>
+      <NavBar padding={"8px 12px 8px 12px"} spaceBetween={true}>
         <FaWineGlassAlt color={"red"} size={"2em"}/>
         <Input
           width="40%"
@@ -66,7 +66,7 @@ const ProductList = () => {
           value={searchValue}
           onChange={(value) => sampleProduct.search(value)}
         />
-        <FaGlobe color={"lightgrey"} size={"2em"} onClick={console.log}/>
+        <FaGlobe color={"lightgrey"} size={"2em"}   />
       </NavBar>
       <NavBar spaceBetween>
         <Filters margin="0 0 0 8px" />
