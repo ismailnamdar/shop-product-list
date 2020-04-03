@@ -1,4 +1,6 @@
 import React from "react";
+import ProductImage from "../views/ProductImage";
+import "./ProductCard.sass";
 
 /**
  *
@@ -39,27 +41,17 @@ import React from "react";
 	"currency": ""
  }
  */
+
 const ProductCard = ({ product }) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column",
-        alignItems: "center",
-        height: 300,
-        width: 200,
-        borderRadius: 2,
-        padding: 8,
-        margin: 2,
-        marginTop: 8,
-        boxShadow:
-          "0 2px 2px 0 rgba(0, 0, 0, 0.2), 1px 1px 1px 1px rgba(0, 0, 0, 0.19)",
-      }}
-    >
-      <img src={product.image} alt={product.name} height={200} />
-      {product.name}
-      <span>{product.price}</span>
+    <div className="ProductCard">
+      <ProductImage src={product.image} alt={product.name} />
+      <span className="ProductCard__brand">{product.brand}</span>
+      <span className="ProductCard__name">{product.name}</span>
+      <div>
+        <span className="ProductCard__price">{product.priceText}</span>
+        <span className="ProductCard__oldPrice">{product.oldPriceText}</span>
+      </div>
     </div>
   );
 };

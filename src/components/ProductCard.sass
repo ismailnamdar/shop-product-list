@@ -1,0 +1,35 @@
+.ProductCard
+  cursor: pointer
+  display: flex
+  justify-content: space-between
+  flex-direction: column
+  align-items: center
+  height: 300px
+  width: 200px
+  border-radius: 2px
+  padding: 8px
+  margin: 8px 2px 2px 2px
+  background-color: white
+
+.ProductCard:hover > img
+  transform: scale(1.1) translateY(-10px)
+
+.ProductCard__brand
+  font-size: 16px
+  font-weight: bold
+  color: #292929
+
+.ProductCard__name
+  font-size: 12px
+  font-weight: 400
+  color: #292929
+
+.ProductCard__price
+  font-size: 16px
+  font-weight: bold
+  color: #292929
+
+.ProductCard__oldPrice
+  font-size: 16px
+  text-decoration: line-through
+  color: #c1c1c1
