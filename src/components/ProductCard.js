@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import ProductImage from "../views/ProductImage";
 import "./ProductCard.sass";
 
@@ -43,8 +44,9 @@ import "./ProductCard.sass";
  */
 
 const ProductCard = React.memo(({ product }) => {
+  const history = useHistory();
   return (
-    <div className="ProductCard">
+    <div className="ProductCard" onClick={() => history.push(`product/${product.productId}`)}>
       <ProductImage src={product.image} alt={product.name} />
       <div className="ProductCard__metaContainer">
         <span className="ProductCard__brand">{product.brand}</span>
