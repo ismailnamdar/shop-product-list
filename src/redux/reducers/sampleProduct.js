@@ -1,23 +1,42 @@
+import lunr from "lunr";
 import { getFailAction, getSuccessAction } from "../actions";
 import { SORT_FUNCTIONS, SORT_KEYS } from "../../configs/constants";
 
 const initialState = {
   data: [],
+  indexedData: [],
   processedData: [],
   filters: {
     inStock: false,
   },
+  searchValue: "",
+  searchedData: null,
   sortKey: SORT_KEYS.PRICE_DESC,
   count: 0,
 };
 
 export default function sampleProduct(state = initialState, action) {
   if (action.type === getSuccessAction("GET_SAMPLE_PRODUCTS")) {
+    const dataMapByProductId = action.payload.data.reduce((acc, datum) => {
+      acc[datum.productId] = datum;
+      return acc;
+    }, {});
     const processedData = [...action.payload.data];
     processedData.sort(SORT_FUNCTIONS[state.sortKey]);
+    const indexedData = lunr(function () {
+      this.ref("productId");
+      this.field("brand");
+      this.field("name");
+
+      action.payload.data.forEach(function (doc) {
+        this.add(doc);
+      }, this);
+    });
     return {
       ...state,
       data: action.payload.data,
+      dataMapByProductId,
+      indexedData,
       processedData,
       count: action.payload.data.length,
     };
@@ -65,6 +84,23 @@ export default function sampleProduct(state = initialState, action) {
       ...state,
       processedData,
       sortKey,
+    };
+  }
+  if (action.type === "search") {
+    if (typeof action.payload !== "string" || action.payload.length === 0) {
+      return {
+        ...state,
+        searchValue: "",
+        searchedData: null,
+      };
+    }
+    const searchedData = state.indexedData
+      .search(`*${action.payload.trim()}* ${action.payload.trim()}`)
+      .map((item) => state.dataMapByProductId[item.ref]);
+    return {
+      ...state,
+      searchedData,
+      searchValue: action.payload,
     };
   }
   // add handlers here

@@ -4,7 +4,9 @@ import PropTypes from "prop-types";
 
 const Content = ({ backgroundColor, children }) => {
   return (
-    <div style={{ backgroundColor }} className={"Content"}>{children}</div>
+    <div style={{ backgroundColor }} className="Content">
+      {children}
+    </div>
   );
 };
 

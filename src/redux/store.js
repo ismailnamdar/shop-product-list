@@ -34,10 +34,18 @@ const setSortKey = (payload) => {
   });
 };
 
+const search = (payload) => {
+  store.dispatch({
+    type: "search",
+    payload,
+  });
+};
+
 export const sampleProduct = {
   getSampleProducts,
   setFilters,
   setSortKey,
+  search,
 };
 
 export default store;

@@ -3,6 +3,7 @@ import axios from "axios";
 import { API_BASE_URL } from "../configs/constants";
 import { getFailAction, getSuccessAction } from "./actions";
 
+// eslint-disable-next-line no-underscore-dangle
 const _axios = axios.create({
   baseURL: API_BASE_URL,
   timeout: 30000,

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import NavBar from "../views/NavBar";
@@ -47,8 +47,11 @@ const Filters = ({ margin }) => {
 
 const ProductList = () => {
   const { t } = useTranslation("translations");
-  const [searchValue, setSearchValue] = useState();
   const products = useSelector((state) => state.sampleProduct.processedData);
+  const { searchValue, searchedProducts } = useSelector((state) => ({
+    searchValue: state.sampleProduct.searchValue,
+    searchedProducts: state.sampleProduct.searchedData,
+  }));
   useEffect(() => {
     sampleProduct.getSampleProducts();
   }, []);
@@ -59,15 +62,15 @@ const ProductList = () => {
           width="40%"
           placeholder={t("searchProduct")}
           value={searchValue}
-          onChange={setSearchValue}
+          onChange={(value) => sampleProduct.search(value)}
         />
       </NavBar>
       <NavBar spaceBetween>
         <Filters margin="0 0 0 8px" />
-        <SortSelector margin="0 8px 0 0" onChange={console.log} />
+        <SortSelector margin="0 8px 0 0" />
       </NavBar>
-      <Content backgroundColor={"#f9f9f9"}>
-        {products.map((product) => (
+      <Content backgroundColor="#f9f9f9">
+        {(searchedProducts || products).map((product) => (
           <ProductCard key={product.productId} product={product} />
         ))}
       </Content>

@@ -42,7 +42,7 @@ import "./ProductCard.sass";
  }
  */
 
-const ProductCard = ({ product }) => {
+const ProductCard = React.memo(({ product }) => {
   return (
     <div className="ProductCard">
       <ProductImage src={product.image} alt={product.name} />
@@ -54,6 +54,6 @@ const ProductCard = ({ product }) => {
       </div>
     </div>
   );
-};
+});
 
 export default ProductCard;
