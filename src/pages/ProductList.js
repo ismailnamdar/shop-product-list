@@ -7,6 +7,7 @@ import { sampleProduct } from "../redux/store";
 import ProductCard from "../components/ProductCard";
 import { SORT_KEYS } from "../configs/constants";
 import Select from "../views/Select";
+import Content from "../views/Content";
 
 const SortSelector = ({ margin }) => {
   const { t } = useTranslation("translations");
@@ -65,19 +66,11 @@ const ProductList = () => {
         <Filters margin="0 0 0 8px" />
         <SortSelector margin="0 8px 0 0" onChange={console.log} />
       </NavBar>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-evenly",
-          alignItems: "center",
-          flexWrap: "wrap",
-        }}
-      >
+      <Content backgroundColor={"#f9f9f9"}>
         {products.map((product) => (
           <ProductCard key={product.productId} product={product} />
         ))}
-      </div>
+      </Content>
     </div>
   );
 };
