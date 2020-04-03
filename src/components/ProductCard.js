@@ -46,9 +46,11 @@ const ProductCard = React.memo(({ product }) => {
   return (
     <div className="ProductCard">
       <ProductImage src={product.image} alt={product.name} />
-      <span className="ProductCard__brand">{product.brand}</span>
-      <span className="ProductCard__name">{product.name}</span>
-      <div>
+      <div className="ProductCard__metaContainer">
+        <span className="ProductCard__brand">{product.brand}</span>
+        <span className="ProductCard__name">{product.name}</span>
+      </div>
+      <div className="ProductCard__metaContainer">
         <span className="ProductCard__price">{product.priceText}</span>
         <span className="ProductCard__oldPrice">{product.oldPriceText}</span>
       </div>
