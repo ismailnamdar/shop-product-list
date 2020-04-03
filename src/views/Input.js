@@ -14,7 +14,7 @@ const Input = ({ value, width, placeholder, onChange }) => {
     <input
       className="Input"
       value={value}
-      width={width}
+      style={{ width }}
       placeholder={placeholder}
       onChange={handleChange}
     />
@@ -23,7 +23,7 @@ const Input = ({ value, width, placeholder, onChange }) => {
 
 Input.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  width: PropTypes.string,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
 };
