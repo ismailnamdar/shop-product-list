@@ -8,6 +8,7 @@ import ProductCard from "../components/ProductCard";
 import { SORT_KEYS } from "../configs/constants";
 import Select from "../views/Select";
 import Content from "../views/Content";
+import {FaWineGlassAlt, FaGlobe} from "react-icons/fa";
 
 const SortSelector = ({ margin }) => {
   const { t } = useTranslation("translations");
@@ -57,13 +58,15 @@ const ProductList = () => {
   }, []);
   return (
     <div>
-      <NavBar>
+      <NavBar spaceBetween={true}>
+        <FaWineGlassAlt color={"red"} size={"2em"}/>
         <Input
           width="40%"
           placeholder={t("searchProduct")}
           value={searchValue}
           onChange={(value) => sampleProduct.search(value)}
         />
+        <FaGlobe color={"lightgrey"} size={"2em"} onClick={console.log}/>
       </NavBar>
       <NavBar spaceBetween>
         <Filters margin="0 0 0 8px" />
