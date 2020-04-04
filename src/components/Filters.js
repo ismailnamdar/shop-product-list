@@ -14,13 +14,19 @@ const Filters = ({ margin, onChange }) => {
     [onChange]
   );
   return (
-    <div className={"Filters__container"} style={{ margin, backgroundColor: filters.inStock ? 'lightgrey' : 'initial' }}>
+    <div
+      className="Filters__container"
+      style={{
+        margin,
+        backgroundColor: filters.inStock ? "lightgrey" : "initial",
+      }}
+    >
       <input
         type="checkbox"
         checked={filters.inStock}
         onChange={handleFilterChange}
       />
-      <span className={"Filters__sortText"}>{t("inStock")}</span>
+      <span className="Filters__sortText">{t("inStock")}</span>
     </div>
   );
 };
