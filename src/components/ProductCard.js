@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import ProductImage from "../views/ProductImage";
 import "./ProductCard.sass";
@@ -45,8 +45,17 @@ import "./ProductCard.sass";
 
 const ProductCard = React.memo(({ product }) => {
   const history = useHistory();
+  const handleNavigateProductDetail = useCallback(() => {
+    history.push(`product/${product.productId}`);
+  }, [history, product]);
   return (
-    <div className="ProductCard" onClick={() => history.push(`product/${product.productId}`)}>
+    <div
+      className="ProductCard"
+      role="button"
+      tabIndex={0}
+      onClick={handleNavigateProductDetail}
+      onKeyPress={handleNavigateProductDetail}
+    >
       <ProductImage src={product.image} alt={product.name} />
       <div className="ProductCard__metaContainer">
         <span className="ProductCard__brand">{product.brand}</span>
