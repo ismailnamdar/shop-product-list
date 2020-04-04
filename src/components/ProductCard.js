@@ -51,7 +51,7 @@ const ProductCard = React.memo(({ product }) => {
       <ProductImage
         src={product.image}
         alt={product.name}
-        isNew={product.params.isNew}
+        isNew={product.params.isNew === "true"}
         inStock={product.inStock}
       />
       <div className="ProductCard__metaContainer">
