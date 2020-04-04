@@ -15,16 +15,8 @@ const ProductImage = ({ src, alt, isNew, inStock, style }) => {
         width="100%"
         style={style}
       />
-      {isNew && (
-        <div className={"ProductImage__isNew"}>
-          New
-        </div>
-      )}
-      {!inStock && (
-        <div className={"ProductImage__inStock"}>
-          {t("soldOut")}
-        </div>
-      )}
+      {isNew && <div className="ProductImage__isNew">New</div>}
+      {!inStock && <div className="ProductImage__inStock">{t("soldOut")}</div>}
     </>
   );
 };
