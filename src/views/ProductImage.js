@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./ProductImage.sass";
 
-const ProductImage = ({ src, alt }) => {
+const ProductImage = ({ src, alt, style }) => {
   return (
     <img
       className="ProductImage"
@@ -10,6 +10,7 @@ const ProductImage = ({ src, alt }) => {
       alt={alt}
       height={200}
       width="100%"
+      style={style}
     />
   );
 };
