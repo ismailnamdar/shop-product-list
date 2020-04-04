@@ -83,8 +83,8 @@ const ProductDetail = () => {
   const history = useHistory();
   const { productId } = useParams();
   const { data, currentIndex, product, loaded } = useSelector((state) => ({
-    data: state.sampleProduct.data,
-    currentIndex: state.sampleProduct.data.findIndex(
+    data: state.sampleProduct.processedData,
+    currentIndex: state.sampleProduct.processedData.findIndex(
       (datum) => datum.productId === productId
     ),
     product: state.sampleProduct.dataMapByProductId[productId],
@@ -159,6 +159,7 @@ const ProductDetail = () => {
                 <ProductImage
                   src={product.image}
                   alt={product.name}
+                  inStock={product.inStock}
                   style={{ width: "100%", height: 500 }}
                 />
               </div>
