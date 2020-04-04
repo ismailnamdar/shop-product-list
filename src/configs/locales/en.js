@@ -8,5 +8,6 @@ export default {
     changeLanguage: "change language",
     returnHomePage: "return home page",
     contactUs: "Contact us",
+    soldOut: "Sold out",
   },
 };

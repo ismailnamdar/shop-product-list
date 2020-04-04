@@ -8,5 +8,6 @@ export default {
     changeLanguage: "dil değiştir",
     returnHomePage: "ana sayfaya dön",
     contactUs: "Bizimle iletişime geçin",
+    soldOut: "Stoklarda yok",
   },
 };

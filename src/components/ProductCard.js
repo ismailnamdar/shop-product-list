@@ -48,12 +48,14 @@ const ProductCard = React.memo(({ product }) => {
       onClick={handleNavigateProductDetail}
       onKeyPress={handleNavigateProductDetail}
     >
-      <ProductImage src={product.image} alt={product.name} />
+      <ProductImage src={product.image} alt={product.name} isNew={product.params.isNew} inStock={product.inStock} />
       <div className="ProductCard__metaContainer">
         <ProductBrand text={product.brand} />
         <ProductName text={product.name} />
       </div>
-      <ProductPrice price={product.priceText} oldPrice={product.oldPriceText} />
+      <div className="ProductCard__priceContainer">
+        <ProductPrice price={product.priceText} oldPrice={product.oldPriceText} />
+      </div>
     </div>
   );
 });
