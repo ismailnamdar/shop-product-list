@@ -22,7 +22,7 @@ const NavBar = ({ children }) => {
         size="2em"
         title={t("returnHomePage")}
         role="button"
-        tabindex={0}
+        tabIndex={0}
         onClick={handleHomeClick}
         onKeyPress={handleHomeClick}
       />
@@ -32,7 +32,7 @@ const NavBar = ({ children }) => {
         size="2em"
         title={t("changeLanguage")}
         role="button"
-        tabindex={0}
+        tabIndex={0}
         onClick={toggleLanguage}
         onKeyPress={toggleLanguage}
       />

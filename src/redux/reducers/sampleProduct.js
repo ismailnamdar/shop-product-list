@@ -44,6 +44,7 @@ export default function sampleProduct(state = initialState, action) {
     };
   }
   if (action.type === getFailAction("GET_SAMPLE_PRODUCTS")) {
+    // init fail request here
     return state;
   }
   if (action.type === "setFilters") {

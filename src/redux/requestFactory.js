@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import axios from "axios";
 import { API_BASE_URL } from "../configs/constants";
-import { getFailAction, getSuccessAction } from "./actions";
+import { ACTIONS, getFailAction, getSuccessAction } from "./actions";
 
 // eslint-disable-next-line no-underscore-dangle
 const _axios = axios.create({
@@ -19,8 +19,9 @@ function* fetch(action) {
       url: path,
     });
     yield put({ type: getSuccessAction(type), payload: { data } });
-  } catch (e) {
-    yield put({ type: getFailAction(type), payload: { message: e.message } });
+  } catch (error) {
+    yield put({ type: ACTIONS.HTTP_ERROR, payload: { error } });
+    yield put({ type: getFailAction(type), payload: { error } });
   }
 }
 
