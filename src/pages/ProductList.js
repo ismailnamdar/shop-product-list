@@ -10,7 +10,7 @@ import { SORT_KEYS } from "../configs/constants";
 import Select from "../views/Select";
 import Content from "../views/Content";
 import { useFetchSampleProducts } from "../configs/hooks";
-import NavBar from "../views/NavBar";
+import NavBar from "../components/NavBar";
 
 const SortSelector = ({ margin }) => {
   const { t } = useTranslation("translations");

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "../configs/i18n";
-import Bar from "./Bar";
+import Bar from "../views/Bar";
 
 const NavBar = ({ children }) => {
   const history = useHistory();

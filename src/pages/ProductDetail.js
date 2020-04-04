@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import NavBar from "../views/NavBar";
+import NavBar from "../components/NavBar";
 import ProductCard from "../components/ProductCard";
 import { useFetchSampleProducts } from "../configs/hooks";
 
