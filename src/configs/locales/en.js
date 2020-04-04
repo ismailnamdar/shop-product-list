@@ -7,5 +7,6 @@ export default {
     notFound: "Page Not Found",
     changeLanguage: "change language",
     returnHomePage: "return home page",
+    contactUs: "Contact us",
   },
 };

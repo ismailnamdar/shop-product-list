@@ -7,5 +7,6 @@ export default {
     notFound: "Sayfa Bulunamadı",
     changeLanguage: "dil değiştir",
     returnHomePage: "ana sayfaya dön",
+    contactUs: "Bizimle iletişime geçin",
   },
 };
