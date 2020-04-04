@@ -24,11 +24,12 @@ export default function sampleProduct(state = initialState, action) {
     }, {});
     const processedData = [...action.payload.data];
     processedData.sort(SORT_FUNCTIONS[state.sortKey]);
+    // eslint-disable-next-line func-names
     const indexedData = lunr(function () {
       this.ref("productId");
       this.field("brand");
       this.field("name");
-
+      // eslint-disable-next-line func-names
       action.payload.data.forEach(function (doc) {
         this.add(doc);
       }, this);
@@ -62,7 +63,7 @@ export default function sampleProduct(state = initialState, action) {
           return acc;
         }
         if (datum[key] !== value) {
-          acc = false;
+          acc = false; // eslint-disable-line no-param-reassign
         }
         return acc;
       }, true);

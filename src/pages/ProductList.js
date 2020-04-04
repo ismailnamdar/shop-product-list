@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+import PropTypes from "prop-types";
 import Bar from "../views/Bar";
 import Input from "../views/Input";
 import { sampleProduct } from "../redux/store";
@@ -29,6 +30,14 @@ const SortSelector = ({ margin }) => {
   );
 };
 
+SortSelector.propTypes = {
+  margin: PropTypes.string,
+};
+
+SortSelector.defaultProps = {
+  margin: "0px",
+};
+
 const Filters = ({ margin }) => {
   const { t } = useTranslation("translations");
   const filters = useSelector((state) => state.sampleProduct.filters);
@@ -45,6 +54,14 @@ const Filters = ({ margin }) => {
       <span>{t("inStock")}</span>
     </div>
   );
+};
+
+Filters.propTypes = {
+  margin: PropTypes.string,
+};
+
+Filters.defaultProps = {
+  margin: "0px",
 };
 
 const ProductList = () => {

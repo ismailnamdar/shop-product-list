@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import { useHistory } from "react-router-dom";
+import PropTypes from "prop-types";
 import ProductImage from "../views/ProductImage";
 import "./ProductCard.sass";
 
@@ -68,5 +69,16 @@ const ProductCard = React.memo(({ product }) => {
     </div>
   );
 });
+
+ProductCard.propTypes = {
+  product: PropTypes.shape({
+    productId: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    brand: PropTypes.string.isRequired,
+    priceText: PropTypes.string.isRequired,
+    oldPriceText: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default ProductCard;
