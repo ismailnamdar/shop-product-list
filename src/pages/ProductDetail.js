@@ -5,7 +5,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import NavBar from "../components/NavBar";
 import { useFetchSampleProducts } from "../configs/hooks";
-import ProductImage from "../views/ProductImage";
+import ProductImage from "../components/ProductImage";
 import {
   ProductBrand,
   ProductName,

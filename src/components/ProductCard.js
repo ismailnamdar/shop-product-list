@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
-import ProductImage from "../views/ProductImage";
+import ProductImage from "./ProductImage";
 import "./ProductCard.sass";
 
 export const ProductBrand = ({ text, size, color }) => {
