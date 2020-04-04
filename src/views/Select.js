@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Select.sass";
 
-const Select = ({ children, margin, defaultValue, onChange }) => {
+const Select = ({ children, margin, value, onChange }) => {
   return (
     <select
       className="Select"
       style={{ margin }}
-      defaultValue={defaultValue}
+      value={value}
       onChange={onChange}
     >
       {children}
@@ -16,7 +16,7 @@ const Select = ({ children, margin, defaultValue, onChange }) => {
 };
 
 Select.propTypes = {
-  defaultValue: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   margin: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   children: PropTypes.node,

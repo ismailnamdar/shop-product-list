@@ -14,6 +14,7 @@ const initialState = {
   searchedData: null,
   sortKey: SORT_KEYS.PRICE_DESC,
   count: 0,
+  loaded: false,
 };
 
 export default function sampleProduct(state = initialState, action) {
@@ -41,11 +42,15 @@ export default function sampleProduct(state = initialState, action) {
       indexedData,
       processedData,
       count: action.payload.data.length,
+      loaded: true,
     };
   }
   if (action.type === getFailAction("GET_SAMPLE_PRODUCTS")) {
     // init fail request here
-    return state;
+    return {
+      ...state,
+      loaded: true,
+    };
   }
   if (action.type === "setFilters") {
     if (action.payload == null) {

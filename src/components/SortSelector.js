@@ -15,7 +15,7 @@ const SortSelector = ({ margin, onChange }) => {
     [onChange]
   );
   return (
-    <Select defaultValue={sortKey} margin={margin} onChange={handleSortChange}>
+    <Select value={sortKey} margin={margin} onChange={handleSortChange}>
       <option key={SORT_KEYS.PRICE_DESC} value={SORT_KEYS.PRICE_DESC}>
         {t("descendingPrice")}
       </option>
