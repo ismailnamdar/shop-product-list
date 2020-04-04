@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import ProductImage from "../views/ProductImage";
 import "./ProductCard.sass";
 
-export const ProductBrand = ({ text, size }) => {
+export const ProductBrand = ({ text, size, color }) => {
   return (
-    <span className="ProductCard__brand" style={{ fontSize: size }}>
+    <span className="ProductCard__brand" style={{ fontSize: size, color }}>
       {text}
     </span>
   );
@@ -22,9 +22,9 @@ export const ProductName = ({ text, size }) => {
 export const ProductPrice = ({ price, oldPrice, basePrice }) => {
   return (
     <>
-      <div className="ProductCard__metaContainer">
+      <div>
         <span className="ProductCard__price">{price}</span>
-        {oldPrice && <span className="ProductCard__oldPrice">{oldPrice}</span>}
+        {oldPrice && <span className="ProductCard__oldPrice margin-left">{oldPrice}</span>}
       </div>
       <div>
         {basePrice && (

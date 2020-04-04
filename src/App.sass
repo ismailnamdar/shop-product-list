@@ -13,6 +13,10 @@
   padding: 8px
   border-radius: 4px
 
+.button:disabled
+  background-color: rgba(211, 211, 211, 0.73)
+  cursor: not-allowed
+
 .is-success
   background-color: $success-color
 
@@ -23,3 +27,48 @@
 
 .is-light
   background-color: $light-color
+
+.margin-top
+  margin-top: 8px
+
+.margin-top-small
+  margin-top: 2px
+
+.margin-bottom
+  margin-bottom: 8px
+
+.margin-right
+  margin-right: 8px
+
+.margin-left
+  margin-left: 8px
+
+.center
+  display: flex
+  justify-content: center
+  align-items: center
+
+.padding-small
+  padding: 1em
+
+.padding-medium
+  padding: 1em
+
+.is-border
+  border-style: solid
+  border-width: 1px
+
+.default-table
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif
+  border-collapse: collapse
+  width: 100%
+
+.default-table td
+  border: 1px solid #ddd
+  padding: 8px
+
+.default-table tr:nth-child(even)
+  background-color: #f2f2f2
+
+.default-table tr:hover
+  background-color: #ddd

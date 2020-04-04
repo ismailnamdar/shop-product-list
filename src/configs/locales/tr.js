@@ -9,5 +9,11 @@ export default {
     returnHomePage: "ana sayfaya dön",
     contactUs: "Bizimle iletişime geçin",
     soldOut: "Stoklarda yok",
+    land: "Yer",
+    region: "Bölge",
+    art: "Sanat",
+    tastes: "Tatlar",
+    rebsorte: "Rebsorte",
+    weight: "Ağırlık",
   },
 };

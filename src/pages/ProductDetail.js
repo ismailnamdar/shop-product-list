@@ -11,6 +11,7 @@ import {
   ProductName,
   ProductPrice,
 } from "../components/ProductCard";
+import "./ProductDetail.sass";
 
 /**
  *
@@ -63,17 +64,19 @@ const paramKeys = [
 const ProductMetaDataTable = ({ data }) => {
   const { t } = useTranslation("translations");
   return (
-    <table>
-      {paramKeys.map((config) => (
-        <tr>
-          <td>{t(config.title)}</td>
-          <td>
-            {data[config.key] == null || data[config.key].length === 0
-              ? "-"
-              : data[config.key]}
-          </td>
-        </tr>
-      ))}
+    <table className={"default-table"}>
+      <tbody>
+        {paramKeys.map((config) => (
+          <tr key={config.key}>
+            <td>{t(config.title)}</td>
+            <td>
+              {data[config.key] == null || data[config.key].length === 0
+                ? "-"
+                : data[config.key]}
+            </td>
+          </tr>
+        ))}
+      </tbody>
     </table>
   );
 };
@@ -95,10 +98,10 @@ const ProductDetail = () => {
     <div>
       <NavBar>
         {loaded && (
-          <div>
+          <div className="center">
             <button
               type="button"
-              className="button is-light"
+              className="button is-dark margin-right"
               disabled={currentIndex <= 0}
               onClick={() =>
                 history.push(`/product/${data[currentIndex - 1].productId}`)
@@ -106,10 +109,10 @@ const ProductDetail = () => {
             >
               <FaArrowLeft color="white" size="2em" />
             </button>
-            {product.brand}
+            <ProductBrand text={product.brand} color="white" size={16} />
             <button
               type="button"
-              className="button is-light"
+              className="button is-dark margin-left"
               disabled={currentIndex >= data.length - 1}
               onClick={() =>
                 history.push(`/product/${data[currentIndex + 1].productId}`)}
@@ -120,42 +123,13 @@ const ProductDetail = () => {
         )}
       </NavBar>
       {loaded && (
-        <div
-          style={{
-            minHeight: "calc(100vh - 68px)",
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              padding: "1em",
-            }}
-          >
+        <div className="ProductDetail__container">
+          <div className="center padding-medium">
             {product.category && product.category[0]}
           </div>
           <div>
-            <div
-              style={{
-                display: "flex",
-                flex: 1,
-                backgroundColor: "white",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <div
-                style={{
-                  // borderStyle: "solid",
-                  // borderWidth: 1,
-                  padding: "2em",
-                  minWidth: "25%",
-                  zIndex: 10,
-                }}
-              >
+            <div className="center">
+              <div className="ProductDetail__imageContainer padding-medium">
                 <ProductImage
                   src={product.image}
                   alt={product.name}
@@ -163,24 +137,15 @@ const ProductDetail = () => {
                   style={{ width: "100%", height: 500 }}
                 />
               </div>
-              <div style={{ marginLeft: "1em" }}>
-                <div
-                  style={{
-                    borderStyle: "solid",
-                    borderWidth: 1,
-                    padding: "2em",
-                    // minWidth: "100%",
-                    // position: 'absolute',
-                    backgroundColor: "rgba(67,0,0,0.11)",
-                  }}
-                >
+              <div className="margin-left">
+                <div className="padding-medium is-light">
                   <div>
                     <ProductBrand text={product.brand} size={16} />
                   </div>
-                  <div style={{ marginTop: "2px" }}>
+                  <div className="margin-top-small">
                     <ProductName text={product.name} size={16} />
                   </div>
-                  <div style={{ marginTop: "6px" }}>
+                  <div className="margin-top">
                     <ProductPrice
                       price={product.priceText}
                       oldPrice={product.oldPriceText}
@@ -188,29 +153,15 @@ const ProductDetail = () => {
                     />
                   </div>
                 </div>
-                <div
-                  style={{
-                    borderStyle: "solid",
-                    borderWidth: 1,
-                    padding: "2em",
-                    // minWidth: "100%",
-                    // position: 'absolute',
-                    backgroundColor: "rgba(67,0,0,0.11)",
-                  }}
-                >
+                <div className="margin-top is-light">
                   <ProductMetaDataTable data={product.params} />
                 </div>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
+                <div className="margin-top center">
                   <a
                     className="link is-success"
                     href={product.url}
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {t("contactUs")}
                   </a>
