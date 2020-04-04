@@ -3,7 +3,7 @@ export default {
     ascendingPrice: "Ascending Price",
     descendingPrice: "Descending Price",
     inStock: "in stock",
-    searchProduct: "Search product",
+    searchFromAllProduct: "Search from all products",
     notFound: "Page Not Found",
     changeLanguage: "change language",
     returnHomePage: "return home page",
@@ -15,5 +15,6 @@ export default {
     tastes: "Tastes",
     rebsorte: "Rebsorte",
     weight: "Weight",
+    new: "New",
   },
 };

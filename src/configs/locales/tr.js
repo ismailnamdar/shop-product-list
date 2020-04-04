@@ -3,7 +3,7 @@ export default {
     ascendingPrice: "Artan Fiyat",
     descendingPrice: "Azalan Fiyat",
     inStock: "stokta olanlar",
-    searchProduct: "Ürün ara",
+    searchFromAllProduct: "Tüm ürünlerde ara",
     notFound: "Sayfa Bulunamadı",
     changeLanguage: "dil değiştir",
     returnHomePage: "ana sayfaya dön",
@@ -15,5 +15,6 @@ export default {
     tastes: "Tatlar",
     rebsorte: "Rebsorte",
     weight: "Ağırlık",
+    new: "Yeni",
   },
 };

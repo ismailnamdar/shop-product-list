@@ -75,7 +75,7 @@ const ProductList = () => {
       <NavBar>
         <Input
           width="40%"
-          placeholder={t("searchProduct")}
+          placeholder={t("searchFromAllProduct")}
           value={searchValue}
           onChange={handleSearchChange}
         />
