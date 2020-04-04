@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
+import "./Filters.sass";
 
 const Filters = ({ margin, onChange }) => {
   const { t } = useTranslation("translations");
@@ -13,13 +14,13 @@ const Filters = ({ margin, onChange }) => {
     [onChange]
   );
   return (
-    <div style={{ margin }}>
+    <div className={"Filters__container"} style={{ margin, backgroundColor: filters.inStock ? 'lightgrey' : 'initial' }}>
       <input
         type="checkbox"
         checked={filters.inStock}
         onChange={handleFilterChange}
       />
-      <span>{t("inStock")}</span>
+      <span className={"Filters__sortText"}>{t("inStock")}</span>
     </div>
   );
 };
