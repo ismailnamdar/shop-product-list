@@ -13,7 +13,12 @@ const AppRouter = () => {
     <Router>
       <Switch>
         <Route key="productList" exact path="/" component={ProductList} />
-        <Route key="productDetail" exact path="/product/:productId" component={ProductDetail} />
+        <Route
+          key="productDetail"
+          exact
+          path="/product/:productId"
+          component={ProductDetail}
+        />
         <Route component={NoMatch} />
       </Switch>
     </Router>
