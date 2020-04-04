@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import PropTypes from "prop-types";
 import NavBar from "../components/NavBar";
 import { useFetchSampleProducts } from "../configs/hooks";
 import ProductImage from "../views/ProductImage";
@@ -64,7 +65,7 @@ const paramKeys = [
 const ProductMetaDataTable = ({ data }) => {
   const { t } = useTranslation("translations");
   return (
-    <table className={"default-table"}>
+    <table className="default-table">
       <tbody>
         {paramKeys.map((config) => (
           <tr key={config.key}>
@@ -81,6 +82,10 @@ const ProductMetaDataTable = ({ data }) => {
   );
 };
 
+ProductMetaDataTable.propTypes = {
+  data: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
+
 const ProductDetail = () => {
   const { t } = useTranslation("translations");
   const history = useHistory();
@@ -94,6 +99,12 @@ const ProductDetail = () => {
     loaded: state.sampleProduct.loaded,
   }));
   useFetchSampleProducts(product == null);
+  const navigateNextProduct = useCallback(() => {
+    history.push(`/product/${data[currentIndex + 1].productId}`);
+  }, [history, currentIndex, data]);
+  const navigatePreviousProduct = useCallback(() => {
+    history.push(`/product/${data[currentIndex - 1].productId}`);
+  }, [history, currentIndex, data]);
   return (
     <div>
       <NavBar>
@@ -103,9 +114,7 @@ const ProductDetail = () => {
               type="button"
               className="button is-dark margin-right"
               disabled={currentIndex <= 0}
-              onClick={() =>
-                history.push(`/product/${data[currentIndex - 1].productId}`)
-              }
+              onClick={navigatePreviousProduct}
             >
               <FaArrowLeft color="white" size="2em" />
             </button>
@@ -114,8 +123,7 @@ const ProductDetail = () => {
               type="button"
               className="button is-dark margin-left"
               disabled={currentIndex >= data.length - 1}
-              onClick={() =>
-                history.push(`/product/${data[currentIndex + 1].productId}`)}
+              onClick={navigateNextProduct}
             >
               <FaArrowRight color="white" size="2em" />
             </button>

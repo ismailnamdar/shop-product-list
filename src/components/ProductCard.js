@@ -11,6 +11,18 @@ export const ProductBrand = ({ text, size, color }) => {
     </span>
   );
 };
+
+ProductBrand.propTypes = {
+  text: PropTypes.string.isRequired,
+  size: PropTypes.number,
+  color: PropTypes.string,
+};
+
+ProductBrand.defaultProps = {
+  size: null,
+  color: null,
+};
+
 export const ProductName = ({ text, size }) => {
   return (
     <span className="ProductCard__name" style={{ fontSize: size }}>
@@ -19,12 +31,23 @@ export const ProductName = ({ text, size }) => {
   );
 };
 
+ProductName.propTypes = {
+  text: PropTypes.string.isRequired,
+  size: PropTypes.number,
+};
+
+ProductName.defaultProps = {
+  size: null,
+};
+
 export const ProductPrice = ({ price, oldPrice, basePrice }) => {
   return (
     <>
       <div>
         <span className="ProductCard__price">{price}</span>
-        {oldPrice && <span className="ProductCard__oldPrice margin-left">{oldPrice}</span>}
+        {oldPrice && (
+          <span className="ProductCard__oldPrice margin-left">{oldPrice}</span>
+        )}
       </div>
       <div>
         {basePrice && (
@@ -33,6 +56,17 @@ export const ProductPrice = ({ price, oldPrice, basePrice }) => {
       </div>
     </>
   );
+};
+
+ProductPrice.propTypes = {
+  price: PropTypes.string.isRequired,
+  oldPrice: PropTypes.string,
+  basePrice: PropTypes.string,
+};
+
+ProductPrice.defaultProps = {
+  oldPrice: null,
+  basePrice: null,
 };
 
 const ProductCard = React.memo(({ product }) => {
@@ -76,6 +110,10 @@ ProductCard.propTypes = {
     brand: PropTypes.string.isRequired,
     priceText: PropTypes.string.isRequired,
     oldPriceText: PropTypes.string.isRequired,
+    inStock: PropTypes.bool.isRequired,
+    params: PropTypes.shape({
+      isNew: PropTypes.string.isRequired,
+    }),
   }).isRequired,
 };
 
