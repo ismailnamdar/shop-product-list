@@ -1,14 +1,15 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { FaWineGlassAlt, FaGlobe } from "react-icons/fa";
-import NavBar from "../views/NavBar";
+import Bar from "../views/Bar";
 import Input from "../views/Input";
 import { sampleProduct } from "../redux/store";
 import ProductCard from "../components/ProductCard";
 import { SORT_KEYS } from "../configs/constants";
 import Select from "../views/Select";
 import Content from "../views/Content";
+import { useFetchSampleProducts } from "../configs/hooks";
+import NavBar from "../views/NavBar";
 
 const SortSelector = ({ margin }) => {
   const { t } = useTranslation("translations");
@@ -53,26 +54,22 @@ const ProductList = () => {
     searchValue: state.sampleProduct.searchValue,
     searchedProducts: state.sampleProduct.searchedData,
   }));
-  useEffect(() => {
-    sampleProduct.getSampleProducts();
-  }, []);
+  useFetchSampleProducts();
   return (
     <div>
-      <NavBar padding="8px 12px 8px 12px" spaceBetween>
-        <FaWineGlassAlt color="red" size="2em" />
+      <NavBar>
         <Input
           width="40%"
           placeholder={t("searchProduct")}
           value={searchValue}
           onChange={(value) => sampleProduct.search(value)}
         />
-        <FaGlobe color="lightgrey" size="2em" />
       </NavBar>
-      <NavBar spaceBetween>
+      <Bar backgroundColor="rgba(243,0,0,0.02)" justifyContent="space-between">
         <Filters margin="0 0 0 8px" />
         <SortSelector margin="0 8px 0 0" />
-      </NavBar>
-      <Content backgroundColor="#f9f9f9">
+      </Bar>
+      <Content backgroundColor="rgba(243,0,0,0.02)">
         {(searchedProducts || products).map((product) => (
           <ProductCard key={product.productId} product={product} />
         ))}

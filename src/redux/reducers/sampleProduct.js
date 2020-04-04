@@ -4,6 +4,7 @@ import { SORT_FUNCTIONS, SORT_KEYS } from "../../configs/constants";
 
 const initialState = {
   data: [],
+  dataMapByProductId: {},
   indexedData: [],
   processedData: [],
   filters: {
