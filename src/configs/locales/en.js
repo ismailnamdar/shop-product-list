@@ -5,5 +5,7 @@ export default {
     inStock: "in stock",
     searchProduct: "Search product",
     notFound: "Page Not Found",
+    changeLanguage: "change language",
+    returnHomePage: "return home page",
   },
 };

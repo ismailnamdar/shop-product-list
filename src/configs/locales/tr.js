@@ -5,5 +5,7 @@ export default {
     inStock: "stokta olanlar",
     searchProduct: "Ürün ara",
     notFound: "Sayfa Bulunamadı",
+    changeLanguage: "dil değiştir",
+    returnHomePage: "ana sayfaya dön",
   },
 };
