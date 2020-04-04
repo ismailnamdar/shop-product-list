@@ -42,3 +42,9 @@ npm start
 `redux` for state management
 
 `redux-saga` for request management
+
+`eslint` for code formatting
+
+`prettier` for consistent code style
+
+`sass` for styling
