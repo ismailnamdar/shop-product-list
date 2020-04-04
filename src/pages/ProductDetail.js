@@ -2,11 +2,15 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 import NavBar from "../components/NavBar";
 import { useFetchSampleProducts } from "../configs/hooks";
 import ProductImage from "../views/ProductImage";
-import {ProductBrand, ProductName, ProductPrice} from "../components/ProductCard";
-import {useTranslation} from "react-i18next";
+import {
+  ProductBrand,
+  ProductName,
+  ProductPrice,
+} from "../components/ProductCard";
 
 /**
  *
@@ -49,12 +53,12 @@ import {useTranslation} from "react-i18next";
  */
 
 const paramKeys = [
-  { key: 'land', title: 'land' },
-  { key: 'region', title: 'region' },
-  { key: 'art', title: 'art' },
-  { key: 'tastes', title: 'tastes' },
-  { key: 'rebsorte', title: 'rebsorte' },
-  { key: 'weight', title: 'weight' },
+  { key: "land", title: "land" },
+  { key: "region", title: "region" },
+  { key: "art", title: "art" },
+  { key: "tastes", title: "tastes" },
+  { key: "rebsorte", title: "rebsorte" },
+  { key: "weight", title: "weight" },
 ];
 const ProductMetaDataTable = ({ data }) => {
   const { t } = useTranslation("translations");
@@ -63,11 +67,15 @@ const ProductMetaDataTable = ({ data }) => {
       {paramKeys.map((config) => (
         <tr>
           <td>{t(config.title)}</td>
-          <td>{data[config.key] == null || data[config.key].length === 0 ? '-' : data[config.key]}</td>
+          <td>
+            {data[config.key] == null || data[config.key].length === 0
+              ? "-"
+              : data[config.key]}
+          </td>
         </tr>
       ))}
     </table>
-  )
+  );
 };
 
 const ProductDetail = () => {
@@ -89,18 +97,19 @@ const ProductDetail = () => {
         {loaded && (
           <div>
             <button
-              type={"button"}
-              className={"button is-light"}
+              type="button"
+              className="button is-light"
               disabled={currentIndex <= 0}
               onClick={() =>
                 history.push(`/product/${data[currentIndex - 1].productId}`)
-              }>
+              }
+            >
               <FaArrowLeft color="white" size="2em" />
             </button>
             {product.brand}
             <button
-              type={"button"}
-              className={"button is-light"}
+              type="button"
+              className="button is-light"
               disabled={currentIndex >= data.length - 1}
               onClick={() =>
                 history.push(`/product/${data[currentIndex + 1].productId}`)}
@@ -111,8 +120,21 @@ const ProductDetail = () => {
         )}
       </NavBar>
       {loaded && (
-        <div style={{ minHeight: "calc(100vh - 68px)", display: "flex", flexDirection: 'column' }}>
-          <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center', padding: "1em" }}>
+        <div
+          style={{
+            minHeight: "calc(100vh - 68px)",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: "1em",
+            }}
+          >
             {product.category && product.category[0]}
           </div>
           <div>
@@ -149,7 +171,8 @@ const ProductDetail = () => {
                     // minWidth: "100%",
                     // position: 'absolute',
                     backgroundColor: "rgba(67,0,0,0.11)",
-                  }}>
+                  }}
+                >
                   <div>
                     <ProductBrand text={product.brand} size={16} />
                   </div>
@@ -157,7 +180,11 @@ const ProductDetail = () => {
                     <ProductName text={product.name} size={16} />
                   </div>
                   <div style={{ marginTop: "6px" }}>
-                    <ProductPrice price={product.priceText} oldPrice={product.oldPriceText} basePrice={product.params.basePrice}/>
+                    <ProductPrice
+                      price={product.priceText}
+                      oldPrice={product.oldPriceText}
+                      basePrice={product.params.basePrice}
+                    />
                   </div>
                 </div>
                 <div
@@ -168,12 +195,23 @@ const ProductDetail = () => {
                     // minWidth: "100%",
                     // position: 'absolute',
                     backgroundColor: "rgba(67,0,0,0.11)",
-                  }}>
+                  }}
+                >
                   <ProductMetaDataTable data={product.params} />
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                  <a className={"link is-success"} href={product.url} target={"_blank"}>
-                    {t('contactUs')}
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <a
+                    className="link is-success"
+                    href={product.url}
+                    target="_blank"
+                  >
+                    {t("contactUs")}
                   </a>
                 </div>
               </div>

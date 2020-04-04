@@ -6,12 +6,16 @@ import "./ProductCard.sass";
 
 export const ProductBrand = ({ text, size }) => {
   return (
-    <span className="ProductCard__brand" style={{ fontSize: size }}>{text}</span>
+    <span className="ProductCard__brand" style={{ fontSize: size }}>
+      {text}
+    </span>
   );
 };
 export const ProductName = ({ text, size }) => {
   return (
-    <span className="ProductCard__name" style={{ fontSize: size }}>{text}</span>
+    <span className="ProductCard__name" style={{ fontSize: size }}>
+      {text}
+    </span>
   );
 };
 
@@ -23,12 +27,13 @@ export const ProductPrice = ({ price, oldPrice, basePrice }) => {
         {oldPrice && <span className="ProductCard__oldPrice">{oldPrice}</span>}
       </div>
       <div>
-      {basePrice && <span className="ProductCard__basePrice">{basePrice}</span>}
+        {basePrice && (
+          <span className="ProductCard__basePrice">{basePrice}</span>
+        )}
       </div>
     </>
   );
 };
-
 
 const ProductCard = React.memo(({ product }) => {
   const history = useHistory();
