@@ -80,11 +80,11 @@ const ProductList = () => {
           onChange={handleSearchChange}
         />
       </NavBar>
-      <Bar backgroundColor="rgba(243,0,0,0.02)" justifyContent="space-between">
+      <Bar isExtraLight justifyContent="space-between">
         <Filters margin="0 0 0 8px" onChange={handleFilterChange} />
         <SortSelector margin="0 8px 0 0" onChange={handleSortChange} />
       </Bar>
-      <Content backgroundColor="rgba(243,0,0,0.02)">
+      <Content isExtraLight>
         {(searchedProducts || products).map((product) => (
           <ProductCard key={product.productId} product={product} />
         ))}

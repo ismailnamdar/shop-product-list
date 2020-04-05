@@ -5,15 +5,20 @@ import "./Bar.sass";
 
 const Bar = ({
   justifyContent,
-  backgroundColor,
   navigation,
   padding,
   children,
+  isExtraLight,
 }) => {
   return (
     <div
-      className={classNames({ NavBar__bar: !navigation, NavBar: navigation })}
-      style={{ padding, backgroundColor, justifyContent }}
+      className={classNames({
+        Bar__bar: !navigation,
+        Bar: navigation,
+        "is-extra-light": isExtraLight,
+        "is-dark": !isExtraLight,
+      })}
+      style={{ padding, justifyContent }}
     >
       {children}
     </div>
@@ -25,7 +30,7 @@ Bar.propTypes = {
   navigation: PropTypes.bool,
   justifyContent: PropTypes.string,
   padding: PropTypes.string,
-  backgroundColor: PropTypes.string,
+  isExtraLight: PropTypes.bool,
 };
 
 Bar.defaultProps = {
@@ -33,7 +38,7 @@ Bar.defaultProps = {
   navigation: false,
   justifyContent: "space-between",
   padding: "0px",
-  backgroundColor: undefined,
+  isExtraLight: false,
 };
 
 export default Bar;
