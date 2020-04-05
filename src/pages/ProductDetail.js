@@ -64,7 +64,7 @@ const ProductDetail = () => {
             {product.category && product.category[0]}
           </div>
           <div>
-            <div className="center">
+            <div className="center flex-wrap">
               <div className="ProductDetail__imageContainer padding-medium">
                 <ProductImage
                   src={product.image}
