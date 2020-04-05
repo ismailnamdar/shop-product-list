@@ -1,5 +1,5 @@
 import lunr from "lunr";
-import { ACTIONS, getFailAction, getSuccessAction} from "../actions";
+import { ACTIONS, getFailAction, getSuccessAction } from "../actions";
 import { SORT_FUNCTIONS, SORT_KEYS } from "../../configs/constants";
 
 const initialState = {
@@ -143,10 +143,9 @@ const reducer = (state = initialState, action) => {
 };
 
 const sampleProduct = {
-  name: 'sampleProduct',
+  name: "sampleProduct",
   reducer,
   handlers,
 };
 
 export default sampleProduct;
-

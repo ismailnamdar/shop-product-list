@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, combineReducers} from "redux";
+import { createStore, applyMiddleware, combineReducers } from "redux";
 import createSagaMiddleware from "redux-saga";
 import requestFactory from "./requestFactory";
 import errorHandler from "./middlewares/errorHandler";
