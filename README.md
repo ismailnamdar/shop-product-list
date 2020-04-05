@@ -2,16 +2,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
-
+### run the project
 ```bash
 # install dependencies
 npm i
-```
-
-```bash
-# linting
-npm run eslint -- --fix
 ```
 
 ```bash
@@ -19,13 +13,23 @@ npm run eslint -- --fix
 npm start
 ```
 
-### Technologies
+### lint the project
+```bash
+# linting
+npm run eslint -- --fix
+```
+
+### commit to project
+```bash
+# commiting
+npm run commit
+```
+
+## Technologies
 
 `axios` for client requests
 
 `classnames` for using conditional classes
-
-`cypress` for end to end test
 
 `i18next` for localization
 
@@ -48,3 +52,7 @@ npm start
 `prettier` for consistent code style
 
 `sass` for styling
+
+`commitizen` for consistent commit style
+
+`cypress` for end to end test
