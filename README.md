@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+React web application that renders product lists. Application is written considering a11y rules. It is fully accessible and responsive for all devices.
+
 ## Available Scripts
 
 ### run the project
@@ -33,32 +35,18 @@ npm run cypress:open
 
 ## Technologies
 
-`axios` for client requests
-
-`classnames` for using conditional classes
-
-`i18next` for localization
-
-`i18next-browser-languagedetector` for detecting browser language
-
-`lunr` for indexing the data to more optimize search
-
-`prop-types` for documenting components
-
-`react-icons` for using icons
- 
-`react-router-dom` for route management
-
-`redux` for state management
-
-`redux-saga` for request management
-
-`eslint` for code formatting
-
-`prettier` for consistent code style
-
-`sass` for styling
-
-`commitizen` for consistent commit style
-
-`cypress` for end to end test
+- `axios` for client requests
+- `classnames` for using conditional classes
+- `i18next` for localization
+- `i18next-browser-languagedetector` for detecting browser language
+- `lunr` for indexing the data to more optimize search
+- `prop-types` for documenting components
+- `react-icons` for using icons
+- `react-router-dom` for route management
+- `redux` for state management
+- `redux-saga` for request management
+- `eslint` for code formatting
+- `prettier` for consistent code style  
+- `sass` for styling
+- `commitizen` for consistent commit style
+- `cypress` for end to end test
