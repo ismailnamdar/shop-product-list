@@ -25,6 +25,12 @@ npm run eslint -- --fix
 npm run commit
 ```
 
+### run cypress test
+```bash
+# running tests
+npm run cypress:open
+```
+
 ## Technologies
 
 `axios` for client requests
