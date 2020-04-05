@@ -1,5 +1,5 @@
 import lunr from "lunr";
-import { getFailAction, getSuccessAction } from "../actions";
+import { ACTIONS, getFailAction, getSuccessAction} from "../actions";
 import { SORT_FUNCTIONS, SORT_KEYS } from "../../configs/constants";
 
 const initialState = {
@@ -17,7 +17,34 @@ const initialState = {
   loaded: false,
 };
 
-export default function sampleProduct(state = initialState, action) {
+const handlers = (dispatch) => ({
+  getSampleProducts: () => {
+    dispatch({
+      type: ACTIONS.HTTP_REQUEST,
+      payload: { path: "sample_products.json", type: "GET_SAMPLE_PRODUCTS" },
+    });
+  },
+  setFilters: (payload) => {
+    dispatch({
+      type: "setFilters",
+      payload,
+    });
+  },
+  setSortKey: (payload) => {
+    dispatch({
+      type: "setSortKey",
+      payload,
+    });
+  },
+  search: (payload) => {
+    dispatch({
+      type: "search",
+      payload,
+    });
+  },
+});
+
+const reducer = (state = initialState, action) => {
   if (action.type === getSuccessAction("GET_SAMPLE_PRODUCTS")) {
     const dataMapByProductId = action.payload.data.reduce((acc, datum) => {
       acc[datum.productId] = datum;
@@ -113,4 +140,13 @@ export default function sampleProduct(state = initialState, action) {
   }
   // add handlers here
   return state;
-}
+};
+
+const sampleProduct = {
+  name: 'sampleProduct',
+  reducer,
+  handlers,
+};
+
+export default sampleProduct;
+

@@ -1,9 +1,15 @@
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, combineReducers} from "redux";
 import createSagaMiddleware from "redux-saga";
 import requestFactory from "./requestFactory";
-import rootReducer from "./reducers";
 import errorHandler from "./middlewares/errorHandler";
-import { ACTIONS } from "./actions";
+import reducerConfigs from "./reducers";
+
+const reducers = reducerConfigs.reduce((acc, item) => {
+  acc[item.name] = item.reducer;
+  return acc;
+}, {});
+
+const rootReducer = combineReducers(reducers);
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
@@ -13,39 +19,9 @@ const store = createStore(
 
 sagaMiddleware.run(requestFactory);
 
-const getSampleProducts = () => {
-  store.dispatch({
-    type: ACTIONS.HTTP_REQUEST,
-    payload: { path: "sample_products.json", type: "GET_SAMPLE_PRODUCTS" },
-  });
-};
-
-const setFilters = (payload) => {
-  store.dispatch({
-    type: "setFilters",
-    payload,
-  });
-};
-
-const setSortKey = (payload) => {
-  store.dispatch({
-    type: "setSortKey",
-    payload,
-  });
-};
-
-const search = (payload) => {
-  store.dispatch({
-    type: "search",
-    payload,
-  });
-};
-
-export const sampleProduct = {
-  getSampleProducts,
-  setFilters,
-  setSortKey,
-  search,
-};
+export const handlers = reducerConfigs.reduce((acc, item) => {
+  acc[item.name] = item.handlers(store.dispatch);
+  return acc;
+}, {});
 
 export default store;

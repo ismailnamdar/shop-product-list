@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
 import Bar from "../views/Bar";
 import Input from "../views/Input";
-import { sampleProduct } from "../redux/store";
+import { handlers } from "../redux/store";
 import ProductCard from "../components/ProductCard";
 import Content from "../views/Content";
 import { useFetchSampleProducts } from "../configs/hooks";
@@ -33,21 +33,21 @@ const ProductList = () => {
   const handleSortChange = useCallback(
     (value) => {
       setLocation(history, "orderBy", value);
-      sampleProduct.setSortKey(value);
+      handlers.sampleProduct.setSortKey(value);
     },
     [history]
   );
   const handleFilterChange = useCallback(
     (value) => {
       setLocation(history, "filterBy", JSON.stringify(value));
-      sampleProduct.setFilters(value);
+      handlers.sampleProduct.setFilters(value);
     },
     [history]
   );
   const handleSearchChange = useCallback(
     (value) => {
       setLocation(history, "search", value);
-      sampleProduct.search(value);
+      handlers.sampleProduct.search(value);
     },
     [history]
   );
