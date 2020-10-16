@@ -1,6 +1,7 @@
 import lunr from "lunr";
 import { ACTIONS, getFailAction, getSuccessAction } from "../actions";
 import { SORT_FUNCTIONS, SORT_KEYS } from "../../configs/constants";
+import sampleProducts from "../../sample-product.json";
 
 const initialState = {
   data: [],
@@ -45,7 +46,13 @@ const handlers = (dispatch) => ({
 });
 
 const reducer = (state = initialState, action) => {
-  if (action.type === getSuccessAction("GET_SAMPLE_PRODUCTS")) {
+  if (
+    action.type === getSuccessAction("GET_SAMPLE_PRODUCTS") ||
+    action.type === getFailAction("GET_SAMPLE_PRODUCTS")
+  ) {
+    // use mock data by mutating action payload data
+    // eslint-disable-next-line no-param-reassign
+    action.payload.data = sampleProducts;
     const dataMapByProductId = action.payload.data.reduce((acc, datum) => {
       acc[datum.productId] = datum;
       return acc;
